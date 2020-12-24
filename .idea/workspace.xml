@@ -131,7 +131,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pdc" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../patronaj" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunDashboard">
@@ -164,7 +164,7 @@
       <updated>1606885069042</updated>
       <workItem from="1606885072023" duration="44000" />
       <workItem from="1606885117757" duration="1690000" />
-      <workItem from="1606887169292" duration="18125000" />
+      <workItem from="1606887169292" duration="21363000" />
     </task>
     <servers />
   </component>
