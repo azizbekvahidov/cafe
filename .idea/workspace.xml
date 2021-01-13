@@ -131,7 +131,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../kafe" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunDashboard">
@@ -165,7 +165,10 @@
       <workItem from="1606885072023" duration="44000" />
       <workItem from="1606885117757" duration="1690000" />
       <workItem from="1606887169292" duration="18125000" />
-      <workItem from="1608791267801" duration="2105000" />
+      <workItem from="1608791267801" duration="2742000" />
+      <workItem from="1609733317487" duration="52440000" />
+      <workItem from="1610088458570" duration="6137000" />
+      <workItem from="1610339856781" duration="8196000" />
     </task>
     <servers />
   </component>

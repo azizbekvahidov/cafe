@@ -14,6 +14,8 @@
     <link href="{{asset('assets/dashboard/vendors/nvd3/css/nv.d3.min.css')}}" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" type="text/css" href="{{asset('assets/dashboard/css/custom.css')}}">
     <link href="{{asset('assets/dashboard/css/dashboard2.css')}}" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/dashboard/vendors/select2/css/select2.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/dashboard/vendors/select2/css/select2-bootstrap.css')}}">
 </head>
 <body class="skin-coreplus">
 <div class="preloader">
@@ -38,5 +40,7 @@
     <script type="text/javascript" src="{{asset('assets/dashboard/vendors/nvd3/js/nv.d3.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/dashboard/vendors/advanced_newsTicker/js/jquery.newsTicker.js')}}"></script>
     <script src="{{asset('assets/dashboard/js/dashboard2.js')}}" type="text/javascript"></script>
+    <script type="text/javascript" src="{{asset('assets/dashboard/vendors/select2/js/select2.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/dashboard/vendors/select2/js/select2.full.js')}}"></script>
 </body>
 </html>
