@@ -19,11 +19,14 @@ class ProductController extends Controller
     }
 
     public function create(){
+        $products = Product::get();
         return view('admin.products.create', [
+            'products' => $products,
             'measures' => Measure::get(),
             'productTypes' => ProductType::get(),
             'categories' => Category::get()
         ]);
+
     }
 
     public function store(Request $request){
@@ -69,5 +72,12 @@ class ProductController extends Controller
         }
         $products->update();
         return redirect()->route('products.index');
+    }
+
+    public function show(Request $request){
+        $products = Product::where('status',1)->orderBy('id')->get();
+        return view('admin.products.show',[
+            'products' => $products,
+        ]);
     }
 }

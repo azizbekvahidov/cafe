@@ -18,7 +18,7 @@
                         </div>
                         <div class="form-group">
                             <label for="status">Статус</label>
-                            <input type="text" class="form-control" id="status" value="{{ $categories->status }}" required name="status">
+                            <input type="text" class="form-control" id="status" value="{{ $categories->status }}" required name="status" hidden>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-outline-success">Сохранить</button>

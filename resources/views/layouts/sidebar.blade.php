@@ -25,6 +25,11 @@
                             <i class="fa fa-fw fa-circle-thin"></i> Категории
                         </a>
                     </li>
+                    <li>
+                        <a href="{{ route('menu.index') }}">
+                            <i class="fa fa-fw fa-circle-thin"></i> Меню
+                        </a>
+                    </li>
                 </ul>
             </li>
         </ul>

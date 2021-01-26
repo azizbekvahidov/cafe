@@ -1,14 +1,12 @@
 @extends('layouts.app')
 @section('content')
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item pt-1"><h3>Новая запись</h3>
+        </li>
+    </ol>
     <div class="raw">
         <div class="col-xl-6 col-12">
             <div class="card border-success">
-                <div class="card-header bg-success text-white">
-                    <h3 class="card-title d-inline">
-                        Create
-                    </h3>
-                </div>
-
                 <div class="card-body">
                     <form action="{{ route('categories.store') }}" method="post">
                         @csrf
@@ -18,10 +16,10 @@
                         </div>
                         <div class="form-group">
                             <label for="status">Status</label>
-                            <input type="text" class="form-control" id="status" placeholder="Status" required name="status">
+                            <input type="text" class="form-control" id="status" placeholder="Status" required name="status" value="1" hidden>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-outline-success">Save</button>
+                            <button type="submit" class="btn btn-outline-success">Сохранить</button>
                         </div>
                     </form>
                 </div>

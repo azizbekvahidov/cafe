@@ -51,6 +51,18 @@ Route::get('/superadmin', 'SuperAdminController@index');
         Route::get('edit/{id}',       ['as' => 'edit',   'uses' => 'ProductController@edit']);
         Route::post('update/{id}',    ['as' => 'update', 'uses' => 'ProductController@update']);
         Route::get('destroy/{id}',    ['as' => 'destroy','uses' => 'ProductController@destroy']);
-        Route::get('show/{id}',       ['as' => 'show',   'uses' => 'ProductController@show']);
+        Route::get('show',            ['as' => 'show',   'uses' => 'ProductController@show']);
     });
+
+    //Menu
+    Route::group(['prefix' => 'menu', 'as' => 'menu.'], function(){
+        Route::get('/',               ['as' => 'index',  'uses' => 'MenuCategoryController@index']);
+        Route::get('create',          ['as' => 'create', 'uses' => 'MenuCategoryController@create']);
+        Route::post('store',          ['as' => 'store',  'uses' => 'MenuCategoryController@store']);
+        Route::get('edit/{id}',       ['as' => 'edit',   'uses' => 'MenuCategoryController@edit']);
+        Route::post('update/{id}',    ['as' => 'update', 'uses' => 'MenuCategoryController@update']);
+        Route::get('destroy/{id}',    ['as' => 'destroy','uses' => 'MenuCategoryController@destroy']);
+        Route::get('show',            ['as' => 'show',   'uses' => 'MenuCategoryController@show']);
+    });
+
 
