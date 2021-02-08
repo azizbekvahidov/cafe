@@ -14,7 +14,7 @@
 
 <body>
 <div class="preloader">
-    <div class="loader_img"><img src="img/loader.gif" alt="loading..." height="64" width="64"></div>
+    <div class="loader_img"><img src="{{asset('assets/dashboard/img/loader.gif')}}" alt="loading..." height="64" width="64"></div>
 </div>
 <div class="container">
     <div class="row " id="form-login">
@@ -65,11 +65,11 @@
                                 </div>
                             </div>
                             <div class="form-group row ">
-                                <label class="control-label col-sm-3" for="password_confirm">Подтверждение пароля<sup>*</sup>  :</label>
+                                <label class="control-label col-sm-3" for="password_confirmation">Подтверждение пароля<sup>*</sup>  :</label>
                                 <div class="col-sm-8">
                                     <div class="input-group">
-                                        <input type="password" placeholder="Confirm Password" class="form-control"
-                                               name="password_confirm" id="password_confirm"/>
+                                        <input type="password" placeholder="Подтвердите пароль" class="form-control"
+                                               name="password_confirmation" id="password_confirmation"/>
                                         <span class="input-group-text rounded-0">
                                             <i class="fa fa-fw fa-key text-primary"></i>
                                         </span>
@@ -77,9 +77,8 @@
                                 </div>
                             </div>
                             <div class="form-group row ">
-                                <div class="offset-sm-3 col-9">
-                                    <button type="submit" class="btn btn-primary">Register</button>
-                                    <input type="reset" class="btn btn-default" value="Reset" id="dee1"/>
+                                <div class="offset-sm-3">
+                                    <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
                                 </div>
                             </div>
                         </form>
