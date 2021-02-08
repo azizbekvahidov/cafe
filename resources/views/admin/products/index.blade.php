@@ -6,15 +6,14 @@
     </ol>
     <div class="raw">
         <div class="container">
-            <div class="card border-secondary">
+            <div class="card card-success">
                 <div class="card-header text-white bg-secondary">
-
                     <a href="{{ route('products.create') }}" class="btn btn-icon btn-primary m-r-50 pull-right rounded">Создать</a>
                 </div>
 
                 <div class="card-body">
-                    <div class="table table-bordered table-striped">
-                        <table class="table text-center" id="table1">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover" id="sample_1">
                             <thead>
                             <tr>
                                 <th>#</th>
@@ -36,7 +35,7 @@
                                     <td class="actions">
                                         <a href="" class="icon"><i class="fa fa-eye"></i></a>
                                         <a href="{{ route('products.edit', $product->id) }}" class="icon"><i class="fa fa-edit"></i></a>
-                                        <a href="" class="icon"><i class="fa fa-trash"></i></a>
+                                        <a href="{{ route('products.destroy', $product->id) }}" class="icon"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -46,6 +45,4 @@
                 </div>
             </div>
         </div>
-    </div>
-
 @endsection

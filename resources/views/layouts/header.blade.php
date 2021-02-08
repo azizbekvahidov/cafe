@@ -1,12 +1,14 @@
 <header class="header">
     <nav class="navbar navbar-expand-md navbar-static-top">
+        <a href="index " class="logo navbar-brand">
+            <!-- Add the class icon to your logo image or logo icon to add the margining -->
+            <img src="{{asset('assets/img/logo.png')}}" alt="logo"/>
+        </a>
         <div>
-            <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button"> <i
-                    class="fa fa-fw fa-bars"></i>
+            <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button"> <i class = "fa fa-fw fa-bars"></i>
             </a>
         </div>
-
-        <div class="navbar-collapse " id="navbarNav">
+        <div class="navbar-collapse" id="navbarNav">
             <div class="navbar-right ml-auto">
                 <ul class="nav navbar-nav">
                     <li class="nav-item dropdown user user-menu">
@@ -32,9 +34,15 @@
                             <li  class="dropdown-divider"></li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
-                                <div class="pull-left">
-                                    <a href="{{route('logout')}}"><span class="icon mdi mdi-power"></span> <i class="fa fa-fw fa-sign-out"></i>Logout</a>
-                                </div>
+                                @auth
+                                    <form action="{{route('logout')}}" method="post">
+                                        @csrf
+                                        <button type="submit" class="btn"><i class="fa fa-fw fa-sign-out"></i></button>
+                                    </form>
+                                @endauth
+                                @guest
+                                    <a href="{{route('login')}}" class="btn btn-outline-info">{{__('Авторизация')}}</a>
+                                @endguest
                             </li>
                         </ul>
                     </li>

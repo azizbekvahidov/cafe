@@ -131,7 +131,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../kafe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../laravel56" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
@@ -179,6 +179,8 @@
       <workItem from="1610893279728" duration="30427000" />
       <workItem from="1611307757108" duration="14423000" />
       <workItem from="1611397597387" duration="15742000" />
+      <workItem from="1612090162049" duration="25207000" />
+      <workItem from="1612329535177" duration="32295000" />
     </task>
     <servers />
   </component>

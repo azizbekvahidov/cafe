@@ -65,4 +65,4 @@ Route::get('/superadmin', 'SuperAdminController@index');
         Route::get('show',            ['as' => 'show',   'uses' => 'MenuCategoryController@show']);
     });
 
-
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

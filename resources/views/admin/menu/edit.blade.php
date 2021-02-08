@@ -1,14 +1,12 @@
 @extends('layouts.app')
 @section('content')
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item pt-1"><h3>Изменить запись</h3>
+        </li>
+    </ol>
     <div class="raw">
         <div class="col-xl-6 col-12">
             <div class="card border-success">
-                <div class="card-header bg-success text-white">
-                    <h3 class="card-title d-inline">
-                        Новая запись
-                    </h3>
-                </div>
-
                 <div class="card-body">
                     <form action="{{ route('menu.update', $menu->id) }}" method="post">
                         @csrf

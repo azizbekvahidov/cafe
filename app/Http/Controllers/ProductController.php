@@ -6,6 +6,7 @@ use App\Category;
 use App\Measure;
 use App\Product;
 use App\ProductType;
+use Faker\Provider\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -44,7 +45,11 @@ class ProductController extends Controller
             $products->image = $url;
         }
         $products->save();
-        return redirect()->route('products.index');
+        $success_output = '<div class="alert alert-success">Добавлена новая запись</div>';
+        $output = array(
+            'success' => $success_output
+        );
+        return json_encode($output);
     }
 
     public function edit($id){
@@ -76,8 +81,17 @@ class ProductController extends Controller
 
     public function show(Request $request){
         $products = Product::where('status',1)->orderBy('id')->get();
+        $productTypes = ProductType::get();
+        $measures = Measure::get();
         return view('admin.products.show',[
             'products' => $products,
+            'productTypes' => $productTypes,
+            'measures' => $measures
         ]);
+    }
+    public function destroy($id){
+        $products = Product::findOrFail($id);
+        $products->delete();
+        return redirect()->route('products.index');
     }
 }

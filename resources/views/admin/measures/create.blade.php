@@ -15,7 +15,6 @@
                             <input type="text" class="form-control" id="name" placeholder="Наименование" required name="name">
                         </div>
                         <div class="form-group">
-                            <label for="status">Статус</label>
                             <input type="text" class="form-control" id="status" placeholder="Статус" required name="status" value="1" hidden>
                         </div>
                         <div class="form-group">

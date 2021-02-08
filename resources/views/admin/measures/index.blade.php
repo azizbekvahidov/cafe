@@ -19,7 +19,6 @@
                         <tr>
                             <th>#</th>
                             <th>Наименование</th>
-                            <th>Статус</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -28,7 +27,6 @@
                         <tr>
                             <td>{{ $measure->id }}</td>
                             <td>{{ $measure->name }}</td>
-                            <td>{{ $measure->status }}</td>
                             <td class="actions">
                                 <a href="{{ route('measures.edit', $measure->id) }}" class="icon"><i class="fa fa-edit"></i></a>
                                 <a href="{{ route('measures.destroy', $measure->id) }}" class="icon"><i class="fa fa-trash"></i></a>
