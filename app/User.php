@@ -20,6 +20,8 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
+    protected $table = 'users';
+
     protected $hidden = [
         'password', 'remember_token',
     ];
