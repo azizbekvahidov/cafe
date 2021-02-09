@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
     public function index(){
-        $categories = Category::get();
+        $categories = Category::where('status', 1)->get();
         return view('admin.categories.index',[
             'categories' => $categories
         ]);
@@ -51,7 +51,9 @@ class CategoryController extends Controller
 
     public function destroy($id){
         $categories = Category::findOrFail($id);
-        $categories->delete();
+        $categories->update([
+            'status' => 0
+        ]);
         return redirect()->route('categories.index');
     }
 }

@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Storage;
 class ProductController extends Controller
 {
     public function index() {
-        $products = Product::get();
+        $products = Product::where('status', 1)->get();
         return view('admin.products.index',[
             'products' => $products
         ]);
@@ -37,6 +37,7 @@ class ProductController extends Controller
         $products->measure_id = $request->measures;
         $products->prod_type_id = $request->productTypes;
         $products->category_id = $request->category;
+        $products->status = $request->status;
         $products->cnt = $request->cnt;
 
         if ($request->file('image')){
@@ -91,7 +92,9 @@ class ProductController extends Controller
     }
     public function destroy($id){
         $products = Product::findOrFail($id);
-        $products->delete();
+        $products->update([
+            'status' => 0
+        ]);
         return redirect()->route('products.index');
     }
 }
