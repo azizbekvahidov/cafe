@@ -12,7 +12,7 @@
     <link href="{{asset('assets/dashboard/vendors/weathericon/css/weather-icons.min.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{asset('assets/dashboard/vendors/c3/c3.min.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{asset('assets/dashboard/vendors/nvd3/css/nv.d3.min.css')}}" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/dashboard/css/custom.css')}}">
+    <link href="{{asset('assets/dashboard/css/custom.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset('assets/dashboard/css/dashboard2.css')}}" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" type="text/css" href="{{asset('assets/dashboard/vendors/select2/css/select2.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assets/dashboard/vendors/select2/css/select2-bootstrap.css')}}">
@@ -40,6 +40,7 @@
         @yield('content')
     </aside>
 </div>
+
 <div id="large_modal" class="modal fade animated" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -52,27 +53,27 @@
         </div>
     </div>
 </div>
-    <script src="{{asset('assets/dashboard/js/app.js')}}" type="text/javascript"></script>
-    <script src="{{asset('assets/dashboard/js/jquery.flot.spline.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/dashboard/js/jquery.flot.spline.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/dashboard/vendors/c3/c3.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/dashboard/vendors/d3/d3.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/dashboard/vendors/nvd3/js/nv.d3.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/dashboard/vendors/advanced_newsTicker/js/jquery.newsTicker.js')}}"></script>
-    <script src="{{asset('assets/dashboard/js/dashboard2.js')}}" type="text/javascript"></script>
+    <script type="text/javascript" src="{{asset('assets/dashboard/js/dashboard2.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/dashboard/js/app.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/dashboard/vendors/selectric/js/jquery.selectric.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/dashboard/vendors/select2/js/select2.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/dashboard/vendors/select2/js/select2.full.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/dashboard/vendors/select2/js/select2.full.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/dashboard/vendors/selectize/js/standalone/selectize.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('assets/dashboard/js/app.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/dashboard/vendors/dropify/js/dropify.js')}}"></script>
-    <script src="{{asset('assets/dashboard/js/dropify_custom.js')}}" type="text/javascript"></script>
+    <script type="text/javascript" src="{{asset('assets/dashboard/js/dropify_custom.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/dashboard/vendors/datatables/js/jquery.dataTables.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/dashboard/js/simple-table.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/dashboard/vendors/datatables/js/dataTables.bootstrap4.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/dashboard/vendors/datatables/js/dataTables.rowReorder.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/dashboard/vendors/datatables/js/dataTables.scroller.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/dashboard/js/datatables_custom.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/dashboard/js/own.js')}}"></script>
 @yield('js')
 </body>
 </html>

@@ -31,26 +31,31 @@ class ProductController extends Controller
     }
 
     public function store(Request $request){
+        try {
+            $products = new Product();
+            $products->name = $request->name;
+            $products->measure_id = $request->measures;
+            $products->prod_type_id = $request->productTypes;
+            $products->category_id = $request->category;
+            $products->status = $request->status;
+            $products->cnt = $request->cnt;
 
-        $products = new Product();
-        $products->name = $request->name;
-        $products->measure_id = $request->measures;
-        $products->prod_type_id = $request->productTypes;
-        $products->category_id = $request->category;
-        $products->status = $request->status;
-        $products->cnt = $request->cnt;
-
-        if ($request->file('image')){
-            $path = Storage::putFile('public/images', $request->file('image'));
-            $url = str_replace('/public/', '/', Storage::url($path));
-            $products->image = $url;
+            if ($request->file('image')) {
+                $path = Storage::putFile('public/images', $request->file('image'));
+                $url = str_replace('/public/', '/', Storage::url($path));
+                $products->image = $url;
+            }
+            $products->save();
+            $success_output = 'success';//'<div class="alert alert-success">Добавлена новая запись</div>';
+            $output = array(
+                'result' => $success_output,
+                'id' => $products->id
+            );
+            return response($output, 201);
         }
-        $products->save();
-        $success_output = '<div class="alert alert-success">Добавлена новая запись</div>';
-        $output = array(
-            'success' => $success_output
-        );
-        return json_encode($output);
+        catch(\Exception $ex){
+            return response($ex->getMessage(),400);
+        }
     }
 
     public function edit($id){
@@ -91,10 +96,20 @@ class ProductController extends Controller
         ]);
     }
     public function destroy($id){
-        $products = Product::findOrFail($id);
-        $products->update([
-            'status' => 0
-        ]);
-        return redirect()->route('products.index');
+        try {
+            $products = Product::findOrFail($id);
+            $products->update([
+                'status' => 0
+            ]);
+            $success_output = 'success';
+            $output =  array(
+                'result' => $success_output,
+                'id' => $products->id
+            );
+            return response($output, 201);
+        }
+        catch (\Exception $ex) {
+            return response($ex->getMessage(), 400);
+        }
     }
 }

@@ -35,7 +35,8 @@
                                     <td class="actions">
                                         <a href="" class="icon"><i class="fa fa-eye"></i></a>
                                         <a href="{{ route('products.edit', $product->id) }}" class="icon"><i class="fa fa-edit"></i></a>
-                                        <a href="{{ route('products.destroy', $product->id) }}" class="icon"><i class="fa fa-trash"></i></a>
+                                        <a href="javascript:;"
+                                           data-target="#delete" data-placement="top" data-toggle="modal" onclick="destroy('{{ route('products.destroy', $product->id) }}',$(this))" class="icon delete" role="button"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -45,4 +46,7 @@
                 </div>
             </div>
         </div>
+    </div>
 @endsection
+
+

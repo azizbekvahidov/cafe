@@ -25,7 +25,7 @@
                                 <label for="select21" class="control-label">
                                     Категория
                                 </label>
-                                <select id="select21" class="form-control select2" style="width:100%" name="category">
+                                <select id="select21" required class="form-control select2" style="width:100%" name="category">
                                     <option value="" selected="selected">Выберите категорию</option>
                                     @foreach($categories as $category)
                                         <option value="{{$category->id}}">{{$category->name}}</option>
@@ -55,17 +55,17 @@
                                 </label>
                                 <div class="form-group m-2">
                                     {{$productTypes->count() ? ' Тип: ' : ' ' }}
-                                    @foreach($productTypes as $productType)
                                         <label class="iradio ml-3">
-                                            <input type="radio" class="radio-btn" id="productTypes" name="productTypes" value="{{$productType->id}}"> {{$productType->name}}
+                                            <input type="radio" class="radio-btn" id="productTypes" name="productTypes" value="product"> product
+                                            <input type="radio" class="radio-btn" id="productTypes" name="productTypes" value="halfstuff"> halfstuff
+                                            <input type="radio" class="radio-btn" id="productTypes" name="productTypes" value="dish"> dish
                                         </label>
-                                    @endforeach
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="status" placeholder="Статус" required name="status" value="1" hidden>
+                                    <input type="text" class="form-control" id="status" required name="status" value="1" hidden>
                                 </div>
                             </div>
-                            <a hidden href="javascript:;" onclick="sendAjax('GET', '{{ route('products.show')}}', 'Поменять структуру')" class="btn btn-info" data-toggle="modal" data-target="#large_modal" id="btn">
+                            <a href="javascript:;" onclick="sendAjax('GET', '{{ route('products.show')}}', 'Поменять структуру')" class="btn btn-info structure" data-toggle="modal" data-target="#large_modal" id="btn">
                                 Поменять структуру
                             </a>
                         </div>
@@ -78,26 +78,37 @@
             </div>
         </div>
     </div>
+@endsection
+@section('js')
     <script>
-        $(':radio').change(function () {
-            $('#btn').removeAttr('hidden');
+        $(document).ready(function() {
+            $('.structure').hide();
+            $('.radio-btn').click(function () {
+                var selected = $(this).val();
+                if(selected =='dish' || selected == 'halfstuff' ) {
+                    $('.structure').show();
+                } else {
+                    $('.structure').hide();
+                }
+            });
         });
-    $(document).on("submit", "#productForm", function (event) {
-        event.preventDefault();
-        console.log(new FormData(this));
-        $.ajax({
-            url: $(this).attr("action"),
-            type: $(this).attr("method"),
-            dataType: "JSON",
-            data: new FormData(this),
-            processData: false,
-            contentType: false,
-            success:function (data) {
-                alert(data);
-            }
+
+        $(document).on("submit", "#productForm", function (event) {
+            event.preventDefault();
+            console.log(new FormData(this));
+            $.ajax({
+                url: $(this).attr("action"),
+                type: $(this).attr("method"),
+                dataType: "JSON",
+                data: new FormData(this),
+                processData: false,
+                contentType: false,
+                success:function (data) {
+                    alert(data);
+                }
+            });
+            return false;
         });
-        return false;
-    });
     </script>
 @endsection
 
