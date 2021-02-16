@@ -1,14 +1,14 @@
 @extends('layouts.app')
 @section('content')
     <ol class="breadcrumb">
-        <li class="breadcrumb-item pt-1"><h3>Новый продукт</h3>
+        <li class="breadcrumb-item pt-1"><h3>Новая запись</h3>
         </li>
     </ol>
     <div class="container-fluid">
         <div class="col-lg-12 col-12">
             <div class="card border-info">
                 <div class="card-body">
-                    <form action="{{route('products.store')}}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route("products.store") }}" method="post" enctype="multipart/form-data" id="productForm">
                         @csrf
                     <div class="row">
                         <div class="col-md-12">
@@ -25,7 +25,7 @@
                                 <label for="select21" class="control-label">
                                     Категория
                                 </label>
-                                <select id="select21" class="form-control select2" style="width:100%" name="category">
+                                <select id="select21" required class="form-control select2" style="width:100%" name="category">
                                     <option value="" selected="selected">Выберите категорию</option>
                                     @foreach($categories as $category)
                                         <option value="{{$category->id}}">{{$category->name}}</option>
@@ -38,7 +38,6 @@
                                     Ед.измерения
                                 </label>
                                 <select id="measures" class="form-control select2" name="measures" id="measures">
-                                    <option value="" selected="selected">Выберите ед.измерения</option>
                                     @foreach($measures as $measure)
                                     <option value="{{$measure->id}}">{{$measure->name}}</option>
                                     @endforeach
@@ -56,33 +55,59 @@
                                 </label>
                                 <div class="form-group m-2">
                                     {{$productTypes->count() ? ' Тип: ' : ' ' }}
-                                    @foreach($productTypes as $productType)
-
                                         <label class="iradio ml-3">
-                                            <input type="radio" class="radio-btn" id="productTypes" name="productTypes" value=""> {{$productType->name}}
+                                            <input type="radio" class="radio-btn" id="productTypes" name="productTypes" value="product"> product
+                                            <input type="radio" class="radio-btn" id="productTypes" name="productTypes" value="halfstuff"> halfstuff
+                                            <input type="radio" class="radio-btn" id="productTypes" name="productTypes" value="dish"> dish
                                         </label>
-                                    @endforeach
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="status" required name="status" value="1" hidden>
                                 </div>
                             </div>
-                            <a href="javascript:;" onclick="sendAjax('GET', '{{ route('products.show')}}', 'Поменять структуру')" class="btn btn-info disabled" data-toggle="modal" data-target="#large_modal" id="btn">
+                            <a href="javascript:;" onclick="sendAjax('GET', '{{ route('products.show')}}', 'Поменять структуру')" class="btn btn-info structure" data-toggle="modal" data-target="#large_modal" id="btn">
                                 Поменять структуру
                             </a>
                         </div>
                     </div>
                     <div class="form-group mt-3 pull-right">
-                        <button type="submit" class="btn btn-outline-primary rounded">Сохранить</button>
+                        <button type="submit" class="btn btn-outline-primary rounded" id="save" >Сохранить</button>
                     </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+@endsection
+@section('js')
     <script>
-        document.querySelectorAll('.radio-btn').forEach((element) => {
-            element.addEventListener('click', () => {
-                var count = document.querySelectorAll('input:checked').length;
-                if (count === 1) document.querySelector('.btn-info').classList.remove('disabled');
-            })
+        $(document).ready(function() {
+            $('.structure').hide();
+            $('.radio-btn').click(function () {
+                var selected = $(this).val();
+                if(selected =='dish' || selected == 'halfstuff' ) {
+                    $('.structure').show();
+                } else {
+                    $('.structure').hide();
+                }
+            });
+        });
+
+        $(document).on("submit", "#productForm", function (event) {
+            event.preventDefault();
+            console.log(new FormData(this));
+            $.ajax({
+                url: $(this).attr("action"),
+                type: $(this).attr("method"),
+                dataType: "JSON",
+                data: new FormData(this),
+                processData: false,
+                contentType: false,
+                success:function (data) {
+                    alert(data);
+                }
+            });
+            return false;
         });
     </script>
 @endsection

@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('home');
 });
 Route::get('/logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
 
@@ -65,4 +65,4 @@ Route::get('/superadmin', 'SuperAdminController@index');
         Route::get('show',            ['as' => 'show',   'uses' => 'MenuCategoryController@show']);
     });
 
-
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

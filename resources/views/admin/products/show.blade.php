@@ -1,8 +1,7 @@
 <div class="container-fluid">
     <div class="col-lg-12 col-12">
-
             <div class="card-body">
-                <form action="{{route('products.store')}}" method="post" enctype="multipart/form-data" id="productForm">
+                <form action="" enctype="multipart/form-data" id="productForm">
                     @csrf
                     <div class="form-group">
                         <label for="product" class="control-label">
@@ -31,7 +30,7 @@
                     </div>
                     <div class="ln_solid"></div>
                     <div class="form-group pull-right">
-                        <button type="submit" class="btn btn-outline-primary rounded" id="sendData">Сохранить</button>
+                        <button type="submit" class="btn btn-outline-primary rounded" onclick="sendAjax('GET', '{{route('products.store')}}', 'Сохранить')">Сохранить</button>
                     </div>
                 </form>
             </div>
@@ -39,21 +38,31 @@
 </div>
 <script>
     $('#product').change(function () {
-        var str = " @foreach($products as $product)
-                        <tr>\
-                            <td>{{ $product->name }}</td>\
+        var str = " <tr>\
+                            <td><input type='text' name='name' class='form-control' value='" + $("#product").val() + "' hidden>" + $("#product option:selected").text() + "</td> <input type='text' name='id' class='form-control' value='{{ $product->id }}' hidden>\
                             <td><input type='text' name='cnt' class='form-control'></td>\
                             <td>{{ $product->productTypes['name'] }}</td>\
                             <td>{{ $product->measures['name'] }}</td>\
-                            <td><button class='btn '><i class='fa fa-trash'></i></button></td>\
-                        </tr>\
-                       @endforeach ";
+                            <td><button class='btn'><i class='fa fa-trash'></i></button></td>\
+                        </tr>";
     $('#structure').append(str);
     str = "";
     });
 
-    $("#sendData").click( function () {
-        sendData('{{route("products.store")}}', $("#productForm").serialize(),"post");
-    });
+$(document).ready(function () {
+    $('#productForm').submit(function () {
+        var data = $(this).serialize();
+        $.ajax({
+            type: 'POST',
+            url: '{{route('products.store')}}',
+            data: data,
+            success: function (data) {
+                $('#productForm').modal("hide");
+                table.ajax.reload();
+            }
+        })
+    })
+})
+
 </script>
 

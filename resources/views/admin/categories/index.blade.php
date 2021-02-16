@@ -17,8 +17,7 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Name</th>
-                                <th>Status</th>
+                                <th>Наименование</th>
                                 <th></th>
                             </tr>
                             </thead>
@@ -27,7 +26,6 @@
                                 <tr>
                                     <td>{{ $category->id }}</td>
                                     <td>{{ $category->name }}</td>
-                                    <td>{{ $category->status }}</td>
                                     <td class="actions">
                                         <a href="{{ route('categories.edit', $category->id) }}" class="icon"><i class="fa fa-edit"></i></a>
                                         <a href="{{ route('categories.destroy', $category->id) }}" class="icon"><i class="fa fa-trash"></i></a>

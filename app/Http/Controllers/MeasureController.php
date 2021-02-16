@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class MeasureController extends Controller
 {
     public function index(){
-        $measures = Measure::get();
+        $measures = Measure::where('status', 1)->get();
         return view('admin.measures.index',[
             'measures' => $measures
         ]);
@@ -52,7 +52,9 @@ class MeasureController extends Controller
 
     public function destroy($id){
         $measures = Measure::findOrFail($id);
-        $measures->delete();
+        $measures->update([
+            'status' => 0
+        ]);
         return redirect()->route('measures.index');
     }
 }

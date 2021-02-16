@@ -20,4 +20,19 @@ window.sendData = function (routes,obj,method) {
         }
     });
 };
+function destroy(route, el){
+    $.ajax({
+        type: 'GET',
+        url: route,
+        success: function (data) {
+            el.parent().parent().remove();
+            console.log(data);
+        }
+    });
+    return false;
+}
+
+
+
+
 
