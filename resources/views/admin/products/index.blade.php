@@ -16,6 +16,7 @@
                         <table class="table table-striped table-bordered table-hover" id="sample_1">
                             <thead>
                             <tr>
+                                <th>№</th>
                                 <th>#</th>
                                 <th>Наименование</th>
                                 <th>Тип</th>
@@ -27,6 +28,7 @@
                             <tbody>
                             @foreach($products as $product)
                                 <tr>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td>{{ $product->id }}</td>
                                     <td>{{ $product->name }}</td>
                                     <td>{{ $product->productTypes['name'] }}</td>

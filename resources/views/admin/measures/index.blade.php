@@ -17,6 +17,7 @@
                     <table class="table text-center" id="table1">
                         <thead>
                         <tr>
+                            <th>№</th>
                             <th>#</th>
                             <th>Наименование</th>
                             <th></th>
@@ -25,6 +26,7 @@
                         <tbody>
                         @foreach($measures as $measure)
                         <tr>
+                            <td>{{$loop->iteration }}</td>
                             <td>{{ $measure->id }}</td>
                             <td>{{ $measure->name }}</td>
                             <td class="actions">

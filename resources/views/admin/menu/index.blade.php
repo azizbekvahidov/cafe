@@ -17,6 +17,7 @@
                         <table class="table text-center" id="table1">
                             <thead>
                             <tr>
+                                <th>№</th>
                                 <th>#</th>
                                 <th>Наименование</th>
                                 <th>Приоритет</th>
@@ -26,6 +27,7 @@
                             <tbody>
                             @foreach($menu as $val)
                                 <tr>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td>{{ $val->id }}</td>
                                     <td>{{ $val->name }}</td>
                                     <td>{{ $val->priority }}</td>
