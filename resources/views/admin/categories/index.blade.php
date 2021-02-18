@@ -16,6 +16,7 @@
                         <table class="table text-center" id="table1">
                             <thead>
                             <tr>
+                                <th>№</th>
                                 <th>#</th>
                                 <th>Наименование</th>
                                 <th></th>
@@ -24,6 +25,7 @@
                             <tbody>
                             @foreach($categories as $category)
                                 <tr>
+                                    <td>{{ $loop->iteration }}</td>
                                     <td>{{ $category->id }}</td>
                                     <td>{{ $category->name }}</td>
                                     <td class="actions">
